@@ -1,18 +1,22 @@
 import React from "react";
 import PropTypes from "prop-types";
+import styles from "./card.module.css";
 
-function CountryCard({ countryName, population, region, capital }) {
+function CountryCard({ countryName, population, region, capital, className }) {
   return (
-    <div>
-      <h3>{countryName}</h3>
+    <div className={`${className} ${styles.card}`}>
+      <h3 className="title">{countryName}</h3>
       <p>
-        <span>Population:</span> {population}
+        <span className={styles.bold}>Population:</span>
+        <span className={styles.greyText}>{population}</span>
       </p>
       <p>
-        <span>Region:</span> {region}
+        <span className={styles.bold}>Region:</span>
+        <span className={styles.greyText}>{region}</span>
       </p>
       <p>
-        <span>Capital:</span> {capital}
+        <span className={styles.bold}>Capital:</span>
+        <span className={styles.greyText}>{capital}</span>
       </p>
     </div>
   );
