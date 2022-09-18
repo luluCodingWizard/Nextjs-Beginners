@@ -1,10 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styles from "./card.module.css";
+import Image from "next/image";
 
 function CountryCard({ countryName, population, region, capital, className }) {
   return (
     <div className={`${className} ${styles.card}`}>
+      <div>
+        <Image src="/australia.png" alt="australia flag" layout="fill" />
+      </div>
       <h3 className="title">{countryName}</h3>
       <p>
         <span className={styles.bold}>Population:</span>
