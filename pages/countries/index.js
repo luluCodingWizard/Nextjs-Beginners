@@ -5,47 +5,30 @@ import Header from "../../components/Header";
 import CountryCard from "../../components/countryCard";
 import styles from "./countries.module.css";
 
-export default function countries() {
+export default function countries({ countries }) {
   return (
     <div>
       <Header />
       <div className={styles.contries_wrapper}>
-        <CountryCard
-          countryName="australia"
-          region="australia"
-          capital="canberra"
-          className={styles.country}
-          population={749873497834}
-        />
-        <CountryCard
-          countryName="australia"
-          region="australia"
-          capital="canberra"
-          population={749873497834}
-          className={styles.country}
-        />
-        <CountryCard
-          countryName="australia"
-          region="australia"
-          capital="canberra"
-          population={749873497834}
-          className={styles.country}
-        />
-        <CountryCard
-          countryName="australia"
-          region="australia"
-          capital="canberra"
-          population={749873497834}
-          className={styles.country}
-        />
-        <CountryCard
-          countryName="australia"
-          region="australia"
-          capital="canberra"
-          population={749873497834}
-          className={styles.country}
-        />
+        {countries.map((country) => (
+          <CountryCard
+            countryName={country.name.common}
+            region={country.region}
+            capital={country.capital}
+            className={styles.country}
+            population={country.population}
+            flag={country.flags.svg}
+          />
+        ))}
       </div>
     </div>
   );
 }
+
+export const getStaticProps = async () => {
+  const response = await fetch("https://restcountries.com/v3.1/all");
+  const data = await response.json();
+  return {
+    props: { countries: data },
+  };
+};

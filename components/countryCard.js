@@ -3,11 +3,18 @@ import PropTypes from "prop-types";
 import styles from "./card.module.css";
 import Image from "next/image";
 
-function CountryCard({ countryName, population, region, capital, className }) {
+function CountryCard({
+  countryName,
+  population,
+  region,
+  capital,
+  className,
+  flag,
+}) {
   return (
     <div className={`${className} ${styles.card}`}>
       <div>
-        <Image src="/australia.png" alt="australia flag" layout="fill" />
+        <Image src={flag} alt={`${countryName} flag`} layout="fill" />
       </div>
       <h3 className="title">{countryName}</h3>
       <p>
