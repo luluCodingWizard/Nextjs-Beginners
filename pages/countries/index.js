@@ -18,6 +18,7 @@ export default function countries({ countries }) {
             className={styles.country}
             population={country.population}
             flag={country.flags.svg}
+            key={country.name.common}
           />
         ))}
       </div>
