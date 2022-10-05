@@ -1,14 +1,12 @@
 // domain.com/countries
 
 import React from "react";
-import Header from "../../components/Header";
 import CountryCard from "../../components/countryCard";
 import styles from "./countries.module.css";
 
 export default function countries({ countries }) {
   return (
     <div>
-      <Header />
       <div className={styles.contries_wrapper}>
         {countries.map((country) => (
           <CountryCard
